@@ -115,6 +115,19 @@ $(document).ready(function() {
       }
     }
   });
+
+  $('#reset-btn').click(function(){
+    enemyArr = Object.keys(toons);
+    round=0;
+    heroName = '';
+    heroHP = 0;
+    heroATK = 0;
+    defenderName = '';
+    defenderHP = 0;
+    defenderATK = 0;
+
+    renderToons();
+  });
 });
 
 

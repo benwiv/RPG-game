@@ -142,6 +142,7 @@ body {
 #log-div {
   padding: 20px 30px 30px 30px;
   margin-bottom: 20px;
+  max-width:450px;
 }
 
 .log-title{
