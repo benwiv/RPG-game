@@ -26,13 +26,14 @@ function renderToons() {
     }
 };
 
-renderToons();
 
-//  CHOOSE CHARACTER
+//  GAMEPLAY on doc ready
 $(document).ready(function() {
-  
+  renderToons();
+
   const enemyArr = Object.keys(toons);
-  let round=0;
+  let round = 0;
+  let killCount = 0;
   let heroName = '';
   let heroHP = 0;
   let heroATK = 0;
@@ -53,6 +54,7 @@ $(document).ready(function() {
     heroATK = toons[playerToon].attack;
   }
   else if(round===1) {
+    
     let enemyToon = $(this).find(">:first-child").text();
     let eToonImage = $('<img id="p-toon">').attr('src', toons[enemyToon].imgEnemy);
     $('#defender-toon').append(eToonImage);
@@ -63,7 +65,7 @@ $(document).ready(function() {
     defenderHP = toons[enemyToon].health;
     defenderATK = toons[enemyToon].attack;
   }
-  else if (round===2){
+  else if ((round===2) && (killCount===1)){
     let enemyToon = $(this).find(">:first-child").text();
     let eToonImage = $('<img id="p-toon">').attr('src', toons[enemyToon].imgEnemy);
     $('#defender-toon').append(eToonImage);
@@ -74,12 +76,13 @@ $(document).ready(function() {
     defenderHP = toons[enemyToon].health;
     defenderATK = toons[enemyToon].attack;
   }
-  else{
+  else if ((round===3) && (killCount===2)){
     let enemyToon = $(this).find(">:first-child").text();
     let eToonImage = $('<img id="p-toon">').attr('src', toons[enemyToon].imgEnemy);
     $('#defender-toon').append(eToonImage);
     enemyArr.splice(enemyArr.indexOf(enemyToon),1);
-    $('#toon-select').css('width',"250px");
+    $('#toon-select').css('width',"750px");
+    $('#toon-select').attr('src',"./assets/images/final-round-title.png");
     $(this).remove();
     defenderName = toons[enemyToon].name;
     defenderHP = toons[enemyToon].health;
@@ -88,26 +91,51 @@ $(document).ready(function() {
   round++;
   });
 
-
+  // && ((enemyArr-killCount)===1))
   $('#attack-btn').click(function(){
     let defenderImage = $('<img id="p-toon">').attr('src', toons[defenderName].imgEnemy);
     let heroImage = $('<img id="p-toon">').attr('src', toons[heroName].imgPlayer);
     let graveWidth = 250*(round-1)
 
-    if(enemyArr.length<=2) {
+    if(enemyArr.length<=2){
       heroHP-=defenderATK;
       defenderHP-=heroATK;
       heroATK+=8
   
       if (defenderHP<0){
         console.log('defender dead');
-        $('#enemy-toons').css('width',String(graveWidth))
-        $('#enemy-toons').append(defenderImage);
-        $('#defender-toon #p-toon').attr('src','');
+        killCount++;
+        if (killCount===3){
+          $('#toon-select').empty();
+          let winnerIMG = $('<img>').attr('src', './assets/images/winner-title.png');
+          $('#enemy-toons').css('width',String(graveWidth))
+          $('#enemy-toons').append(defenderImage);
+          $('#defender-toon #p-toon').attr('src','');
+          $('#toon-select').css('width',"750px");
+          $('#toon-select').append(winnerIMG);
+        }
+        // else if (killCount===2){
+        //   $('#toon-select').empty();
+        //   let finalIMG = $('<img>').attr('src', './assets/images/final-round-title.png');
+        //   $('#enemy-toons').css('width',String(graveWidth))
+        //   $('#enemy-toons').append(defenderImage);
+        //   $('#defender-toon #p-toon').attr('src','');
+        //   $('#toon-select').css('width',"750px");
+        //   $('#toon-select').append(finalIMG);
+        // }
+        else {
+          $('#enemy-toons').css('width',String(graveWidth))
+          $('#enemy-toons').append(defenderImage);
+          $('#defender-toon #p-toon').attr('src','');
+        }
       }
       else if (heroHP<=0){
         console.log('hero dead');
+        $('#toon-select').empty();
+        let loserIMG = $('<img>').attr('src', './assets/images/game-over-title.png');
         $('#enemy-toons').append(heroImage);
+        $('#toon-select').css('width',"750px");
+        $('#toon-select').append(loserIMG);
       }
       else {
         $('#log-txt').html(heroName + ' hits ' + defenderName + ' for ' + heroATK + ' dmg! ' + defenderName + ' hits back for ' + 
@@ -116,18 +144,19 @@ $(document).ready(function() {
     }
   });
 
-  $('#reset-btn').click(function(){
-    enemyArr = Object.keys(toons);
-    round=0;
-    heroName = '';
-    heroHP = 0;
-    heroATK = 0;
-    defenderName = '';
-    defenderHP = 0;
-    defenderATK = 0;
+  // $('#reset-btn').click(function(){
+  //   enemyArr = Object.keys(toons);
+  //   round=0;
+  //   heroName = '';
+  //   heroHP = 0;
+  //   heroATK = 0;
+  //   defenderName = '';
+  //   defenderHP = 0;
+  //   defenderATK = 0;
 
-    renderToons();
-  });
+
+  //   renderToons();
+  // });
 });
 
 
