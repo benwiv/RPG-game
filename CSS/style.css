@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Press Start 2P";
+  src: url(./PressStart2P.ttf);
+  }
+
+body {
+  background: url(../assets/images/16bit-BG.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Press Start 2P';
+  margin-top:10px;
+}
+
+#toon-select {
+  background: black;
+  width:1000px;
+  height: 250px;
+  border: 4px solid blue;
+  margin: auto;
+  position: relative;
+  display:flex;
+  flex-direction: row;
+}
+
+.toon-icon {
+  margin: 0 0 0 0;
+  align-items: flex-start;
+}
+
+.toon-icon p {
+  color:orange;
+  font-size: 14px;
+  z-index: 99;
+  position: absolute;
+  top: 30px;
+  padding-left: 15px;
+}
+
+#health{
+  color:white;
+  font-size:10px;
+  top:60px;
+}
+
+#arena {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#player-toon {
+  background: black;
+  width: 250px;
+  height: 250px;
+  margin: 40px auto;
+  border: 4px solid limegreen;
+  flex-shrink:0;
+}
+
+#p-toon {
+  margin-top: 14px;
+}
+
+#player-p, #defender-p {
+  margin: -30px 15px 0 15px;
+}
+
+#player-p {
+  color:limegreen; 
+}
+
+#defender-p {
+  text-align: right; 
+  color:red;
+}
+
+#defender-toon {
+  background: black;
+  width: 250px;
+  height: 250px;
+  margin: 40px auto;
+  border: 4px solid red;
+  flex-shrink:0;
+}
+
+#enemy-toons {
+  background: black;
+  width: 500px;
+  height: 250px;
+  margin: -40px auto auto auto;
+  border: 4px solid yellow;
+}
+
+#btn-div {
+  display:flex;
+  flex-direction: column;
+  padding: 40px;
+  align-self: center;
+}
+
+#attack-btn{
+  font-family: 'Press Start 2P';
+  background:rgb(224, 101, 0);
+  border: 3px solid black;
+  font-size: 20px;
+  color:white;
+  height: 80px;
+  width: 200px;
+  align-self: center;
+  justify-self: center;
+  flex-shrink: 0;
+}
+
+#reset-btn {
+  font-family: 'Press Start 2P';
+  background:grey;
+  border: 3px solid black;
+  font-size: 12px;
+  height: 40px;
+  width: 100px;
+  color:black;
+  align-self: center;
+  justify-self: center;
+  margin-top: 40px;
+  flex-shrink: 0;
+}
+
+#log-div {
+  padding: 30px;
+}
+
+.log-title{
+  font-size: 14px;
+  line-height:1.5em;
+  color: orange;  
+  margin-top: 10px;
+}
+
+.log-p {
+  font-size: 10px;
+  line-height:1.5em;
+  margin-bottom:10px;
+}

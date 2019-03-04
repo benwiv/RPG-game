@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <!-- <link rel="stylesheet" href="./CSS/reset.css"> -->
-  <link rel="stylesheet" href="./CSS/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16-bit smash!</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+  </head>
 
-<body>
-  <div>
-    <p id='character-select'></p>
-  </div>
-</body>
+  <body>
+    <div id='toon-select'>
+      <p>select a character</p>
+    </div>
+    <div id='arena'>
+      <div id='player-toon' class='player-toon-div'>
+        <p id='player-p'>YOUR HERO</p>
+      </div>
+      <div id='btn-div'>
+        <button id='attack-btn'>ATTACK!</button>
+        <button id='reset-btn'>reset</button>
+      </div>
+      <div id='log-div'>
+        <p class='log-title'>GAME INSTRUCTIONS</p>
+        <p class='log-p' >* Click on your hero then click your first opponent</p>
+        <p class='log-p' >* Press attack and watch the commentary on your battle!</p>
+        <p class='log-p' >* Get stronger with each attack, so be strategic about who you fight first</p>
+        <p class='log-title'>ARENA COMMENTARY</p>
+        <p class='log-p' >Hero hits opponent for 25 dmg!</p>
+      </div>
+      <div id='defender-toon'>
+        <p id='defender-p'>ENEMY HERO</p>
+      </div>
+    </div>
+    <div id='enemy-toons'>
+      <p id='enemy-p'>select an opponent</p>
+    </div>
 
-<script type="text/Javascript" src="./scripts/game.js"></script>
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./scripts/game.js"></script>  
+  
+  </body>
+
 
 </html>
