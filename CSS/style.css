@@ -24,6 +24,11 @@ body {
   flex-direction: row;
 }
 
+#toon-select-p {
+  margin-bottom: -280px;
+  text-align: end;
+}
+
 .toon-icon {
   margin: 0 0 0 0;
   align-items: flex-start;
@@ -88,10 +93,16 @@ body {
 
 #enemy-toons {
   background: black;
-  width: 500px;
+  width: 250px;
   height: 250px;
-  margin: -40px auto auto auto;
+  margin: -40px auto 10px auto;
   border: 4px solid yellow;
+}
+
+#enemy-p {
+  margin-top:-30px;
+  text-align: center;
+  color:yellow
 }
 
 #btn-div {
@@ -129,7 +140,8 @@ body {
 }
 
 #log-div {
-  padding: 30px;
+  padding: 20px 30px 30px 30px;
+  margin-bottom: 20px;
 }
 
 .log-title{
@@ -139,8 +151,17 @@ body {
   margin-top: 10px;
 }
 
+#log-txt {
+  color: limegreen;
+  font-size:10px;
+}
+
 .log-p {
-  font-size: 10px;
+  font-size: 8px;
   line-height:1.5em;
   margin-bottom:10px;
+}
+
+#defeat-txt {
+  color:red;
 }
